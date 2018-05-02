@@ -8,13 +8,13 @@ server_port = 8080
 
 
 token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhYzkwN2FhYTBjY2Y3MzdhMmY3OGUxNiIsImV4cCI6MTUyNTg0ODM4NywibGFiZWwiOiJBZ3Jpbm9kZSJ9.ckfrhbQagNAIb0G2et3cPeT13GmSF_GLZBKadb_Mly8"
-#mqtt_broker_ip = "127.0.0.1"
-#mqtt_broker_port = 1883
+mqtt_broker_ip = "127.0.0.1"
+mqtt_broker_port = 1883
 
 
 
-#mqttc = mqtt.Client("server", clean_session=False)
-#mqttc.connect(mqtt_broker_ip, mqtt_broker_port)
+mqttc = mqtt.Client("server", clean_session=False)
+mqttc.connect(mqtt_broker_ip, mqtt_broker_port)
 
 headers = {
     "Content-Type": "application/json",
@@ -27,7 +27,7 @@ def generate_message(payload):
     temp = float(data["temperature"]["value"])
     humidity = float(data["humidity"]["value"].replace(" %",""))
     rain = int(data["rain"]["value"])
-    light = int(data["rain"]["value"])
+    light = int(data["light"]["value"])
     soil = int(data["soil"]["value"])
     post_data = {
         "label" : "Agrinode",
